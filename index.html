@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hacker Tools Store</title>
-<style>
-  body {
-    background-color: #000;
+    <style>
+        /* Animasi Latar Belakang */
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    background: linear-gradient(-45deg, #000, #0f0, #000, #0f0);
+    background-size: 400% 400%;
+    animation: backgroundAnimation 10s ease infinite;
     color: #0f0;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
@@ -19,15 +28,28 @@
     text-align: center;
 }
 
+/* Animasi Glow pada Judul */
+@keyframes glow {
+    0% { text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0; }
+    50% { text-shadow: 0 0 20px #0f0, 0 0 40px #0f0, 0 0 60px #0f0; }
+    100% { text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0; }
+}
+
 .glow {
     font-size: 3rem;
-    text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+    animation: glow 2s infinite;
 }
 
 .subtitle {
     font-size: 1.2rem;
     color: #0f0;
     margin-bottom: 30px;
+}
+
+/* Animasi Fade In pada Produk */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .product-grid {
@@ -37,11 +59,12 @@
 }
 
 .product {
-    background-color: #111;
+    background-color: rgba(17, 17, 17, 0.8);
     padding: 20px;
     border: 1px solid #0f0;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .product h2 {
@@ -54,6 +77,13 @@
     margin-bottom: 15px;
 }
 
+/* Animasi Tombol */
+@keyframes buttonPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
 button {
     background-color: #0f0;
     color: #000;
@@ -63,47 +93,15 @@ button {
     cursor: pointer;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+    transition: background-color 0.3s ease;
+    animation: buttonPulse 2s infinite;
 }
 
 button:hover {
     background-color: #0c0;
+    animation: none;
 }
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.modal-content {
-    background-color: #000;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #0f0;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-}
-
-.close {
-    color: #0f0;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover {
-    color: #0c0;
-}
-</style>
+    </style>
 </head>
 <body>
     <div class="container">
@@ -114,149 +112,120 @@ button:hover {
             <div class="product">
                 <h2>Python Hacking Tool</h2>
                 <p>Harga: Rp 50.000</p>
-                <button onclick="checkout('python_hacking_tool')">Beli Sekarang</button>
+                <button onclick="checkout('Python Hacking Tool', 50000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Network Scanner</h2>
                 <p>Harga: Rp 60.000</p>
-                <button onclick="checkout('network_scanner')">Beli Sekarang</button>
+                <button onclick="checkout('Network Scanner', 60000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Password Cracker</h2>
                 <p>Harga: Rp 70.000</p>
-                <button onclick="checkout('password_cracker')">Beli Sekarang</button>
+                <button onclick="checkout('Password Cracker', 70000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Keylogger</h2>
                 <p>Harga: Rp 80.000</p>
-                <button onclick="checkout('keylogger')">Beli Sekarang</button>
+                <button onclick="checkout('Keylogger', 80000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>VPN Script</h2>
                 <p>Harga: Rp 40.000</p>
-                <button onclick="checkout('vpn_script')">Beli Sekarang</button>
+                <button onclick="checkout('VPN Script', 40000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>DDoS Tool</h2>
                 <p>Harga: Rp 100.000</p>
-                <button onclick="checkout('ddos_tool')">Beli Sekarang</button>
+                <button onclick="checkout('DDoS Tool', 100000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Web Exploit Kit</h2>
                 <p>Harga: Rp 120.000</p>
-                <button onclick="checkout('web_exploit_kit')">Beli Sekarang</button>
+                <button onclick="checkout('Web Exploit Kit', 120000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>SQL Injection Tool</h2>
                 <p>Harga: Rp 90.000</p>
-                <button onclick="checkout('sql_injection_tool')">Beli Sekarang</button>
+                <button onclick="checkout('SQL Injection Tool', 90000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Ransomware Builder</h2>
                 <p>Harga: Rp 150.000</p>
-                <button onclick="checkout('ransomware_builder')">Beli Sekarang</button>
+                <button onclick="checkout('Ransomware Builder', 150000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Phishing Kit</h2>
                 <p>Harga: Rp 75.000</p>
-                <button onclick="checkout('phishing_kit')">Beli Sekarang</button>
+                <button onclick="checkout('Phishing Kit', 75000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Malware Builder</h2>
                 <p>Harga: Rp 130.000</p>
-                <button onclick="checkout('malware_builder')">Beli Sekarang</button>
+                <button onclick="checkout('Malware Builder', 130000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>WiFi Hacking Tool</h2>
                 <p>Harga: Rp 85.000</p>
-                <button onclick="checkout('wifi_hacking_tool')">Beli Sekarang</button>
+                <button onclick="checkout('WiFi Hacking Tool', 85000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Cryptocurrency Miner</h2>
                 <p>Harga: Rp 200.000</p>
-                <button onclick="checkout('cryptocurrency_miner')">Beli Sekarang</button>
+                <button onclick="checkout('Cryptocurrency Miner', 200000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Firewall Bypass Tool</h2>
                 <p>Harga: Rp 95.000</p>
-                <button onclick="checkout('firewall_bypass_tool')">Beli Sekarang</button>
+                <button onclick="checkout('Firewall Bypass Tool', 95000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Brute Force Tool</h2>
                 <p>Harga: Rp 65.000</p>
-                <button onclick="checkout('brute_force_tool')">Beli Sekarang</button>
+                <button onclick="checkout('Brute Force Tool', 65000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Steganography Tool</h2>
                 <p>Harga: Rp 55.000</p>
-                <button onclick="checkout('steganography_tool')">Beli Sekarang</button>
+                <button onclick="checkout('Steganography Tool', 55000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Botnet Controller</h2>
                 <p>Harga: Rp 180.000</p>
-                <button onclick="checkout('botnet_controller')">Beli Sekarang</button>
+                <button onclick="checkout('Botnet Controller', 180000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Exploit Framework</h2>
                 <p>Harga: Rp 110.000</p>
-                <button onclick="checkout('exploit_framework')">Beli Sekarang</button>
+                <button onclick="checkout('Exploit Framework', 110000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Reverse Engineering Tool</h2>
                 <p>Harga: Rp 140.000</p>
-                <button onclick="checkout('reverse_engineering_tool')">Beli Sekarang</button>
+                <button onclick="checkout('Reverse Engineering Tool', 140000)">Beli Sekarang</button>
             </div>
             <div class="product">
                 <h2>Forensic Analysis Tool</h2>
                 <p>Harga: Rp 95.000</p>
-                <button onclick="checkout('forensic_analysis_tool')">Beli Sekarang</button>
+                <button onclick="checkout('Forensic Analysis Tool', 95000)">Beli Sekarang</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal Checkout -->
-    <div id="checkoutModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 class="glow">Checkout</h2>
-            <p id="productName"></p>
-            <p id="productPrice"></p>
-            <p>Silakan scan QR code di bawah ini untuk melakukan pembayaran via DANA:</p>
-            <img src="assets/qr-code.png" alt="QR Code DANA" width="200">
-            <p>Setelah pembayaran, klik tombol di bawah ini untuk mengunduh tool:</p>
-            <button id="downloadButton">Download Tool</button>
-        </div>
-    </div>
-
     <script>
-      // Data produk
-const products = {
-    python_hacking_tool: { name: 'Python Hacking Tool', price: 50000, file: 'python_hacking_tool.zip' },
-    network_scanner: { name: 'Network Scanner', price: 60000, file: 'network_scanner.zip' },
-    // Tambahkan produk lainnya di sini
-};
+        function checkout(productName, productPrice) {
+    // Format pesan otomatis
+    const message = `Halo, saya ingin membeli ${productName} seharga Rp ${productPrice.toLocaleString()}. Bagaimana cara pembayarannya?`;
 
-// Fungsi untuk membuka modal checkout
-function checkout(productId) {
-    const product = products[productId];
-    if (!product) return;
+    // Encode pesan untuk URL
+    const encodedMessage = encodeURIComponent(message);
 
-    document.getElementById('productName').textContent = `Anda membeli: ${product.name}`;
-    document.getElementById('productPrice').textContent = `Harga: Rp ${product.price.toLocaleString()}`;
+    // Link Telegram Anda
+    const telegramUsername = "username_anda"; // Ganti dengan username Telegram Anda
+    const telegramLink = `https://t.me/${telegramUsername}?start=${encodedMessage}`;
 
-    // Set tombol download
-    const downloadButton = document.getElementById('downloadButton');
-    downloadButton.onclick = () => {
-        window.location.href = `assets/${product.file}`;
-    };
-
-    // Tampilkan modal
-    document.getElementById('checkoutModal').style.display = 'block';
-}
-
-// Fungsi untuk menutup modal
-function closeModal() {
-    document.getElementById('checkoutModal').style.display = 'none';
+    // Redirect ke Telegram
+    window.location.href = telegramLink;
 }
     </script>
 </body>
