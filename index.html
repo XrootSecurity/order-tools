@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Tools Store</title>
+<style>
+  body {
+    background-color: #000;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.glow {
+    font-size: 3rem;
+    text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #0f0;
+    margin-bottom: 30px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    background-color: #111;
+    padding: 20px;
+    border: 1px solid #0f0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.product h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.product p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #0f0;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #0c0;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #000;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #0f0;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.close {
+    color: #0f0;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #0c0;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="glow">Hacker Tools Store</h1>
+        <p class="subtitle">Tempat Beli Tools dan Script Berkualitas</p>
+        <div class="product-grid">
+            <!-- Daftar 20 Tools -->
+            <div class="product">
+                <h2>Python Hacking Tool</h2>
+                <p>Harga: Rp 50.000</p>
+                <button onclick="checkout('python_hacking_tool')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Network Scanner</h2>
+                <p>Harga: Rp 60.000</p>
+                <button onclick="checkout('network_scanner')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Password Cracker</h2>
+                <p>Harga: Rp 70.000</p>
+                <button onclick="checkout('password_cracker')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Keylogger</h2>
+                <p>Harga: Rp 80.000</p>
+                <button onclick="checkout('keylogger')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>VPN Script</h2>
+                <p>Harga: Rp 40.000</p>
+                <button onclick="checkout('vpn_script')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>DDoS Tool</h2>
+                <p>Harga: Rp 100.000</p>
+                <button onclick="checkout('ddos_tool')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Web Exploit Kit</h2>
+                <p>Harga: Rp 120.000</p>
+                <button onclick="checkout('web_exploit_kit')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>SQL Injection Tool</h2>
+                <p>Harga: Rp 90.000</p>
+                <button onclick="checkout('sql_injection_tool')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Ransomware Builder</h2>
+                <p>Harga: Rp 150.000</p>
+                <button onclick="checkout('ransomware_builder')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Phishing Kit</h2>
+                <p>Harga: Rp 75.000</p>
+                <button onclick="checkout('phishing_kit')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Malware Builder</h2>
+                <p>Harga: Rp 130.000</p>
+                <button onclick="checkout('malware_builder')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>WiFi Hacking Tool</h2>
+                <p>Harga: Rp 85.000</p>
+                <button onclick="checkout('wifi_hacking_tool')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Cryptocurrency Miner</h2>
+                <p>Harga: Rp 200.000</p>
+                <button onclick="checkout('cryptocurrency_miner')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Firewall Bypass Tool</h2>
+                <p>Harga: Rp 95.000</p>
+                <button onclick="checkout('firewall_bypass_tool')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Brute Force Tool</h2>
+                <p>Harga: Rp 65.000</p>
+                <button onclick="checkout('brute_force_tool')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Steganography Tool</h2>
+                <p>Harga: Rp 55.000</p>
+                <button onclick="checkout('steganography_tool')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Botnet Controller</h2>
+                <p>Harga: Rp 180.000</p>
+                <button onclick="checkout('botnet_controller')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Exploit Framework</h2>
+                <p>Harga: Rp 110.000</p>
+                <button onclick="checkout('exploit_framework')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Reverse Engineering Tool</h2>
+                <p>Harga: Rp 140.000</p>
+                <button onclick="checkout('reverse_engineering_tool')">Beli Sekarang</button>
+            </div>
+            <div class="product">
+                <h2>Forensic Analysis Tool</h2>
+                <p>Harga: Rp 95.000</p>
+                <button onclick="checkout('forensic_analysis_tool')">Beli Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Checkout -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 class="glow">Checkout</h2>
+            <p id="productName"></p>
+            <p id="productPrice"></p>
+            <p>Silakan scan QR code di bawah ini untuk melakukan pembayaran via DANA:</p>
+            <img src="assets/qr-code.png" alt="QR Code DANA" width="200">
+            <p>Setelah pembayaran, klik tombol di bawah ini untuk mengunduh tool:</p>
+            <button id="downloadButton">Download Tool</button>
+        </div>
+    </div>
+
+    <script>
+      // Data produk
+const products = {
+    python_hacking_tool: { name: 'Python Hacking Tool', price: 50000, file: 'python_hacking_tool.zip' },
+    network_scanner: { name: 'Network Scanner', price: 60000, file: 'network_scanner.zip' },
+    // Tambahkan produk lainnya di sini
+};
+
+// Fungsi untuk membuka modal checkout
+function checkout(productId) {
+    const product = products[productId];
+    if (!product) return;
+
+    document.getElementById('productName').textContent = `Anda membeli: ${product.name}`;
+    document.getElementById('productPrice').textContent = `Harga: Rp ${product.price.toLocaleString()}`;
+
+    // Set tombol download
+    const downloadButton = document.getElementById('downloadButton');
+    downloadButton.onclick = () => {
+        window.location.href = `assets/${product.file}`;
+    };
+
+    // Tampilkan modal
+    document.getElementById('checkoutModal').style.display = 'block';
+}
+
+// Fungsi untuk menutup modal
+function closeModal() {
+    document.getElementById('checkoutModal').style.display = 'none';
+}
+    </script>
+</body>
+</html>
